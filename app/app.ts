@@ -16,13 +16,9 @@ export class MyApp {
   constructor(private platform: Platform, private alertCtrl: AlertController) {
     // this.rootPage = TabsPage;
     this.rootPage = LoginPage;
-
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
     });
-
     platform.registerBackButtonAction(() => {
       let confirm = this.alertCtrl.create({
         title: 'Exit app?',
@@ -30,21 +26,16 @@ export class MyApp {
         buttons: [
           {
             text: 'Exit',
-            handler: () => {
-              platform.exitApp();
-            }
+            handler: () => { platform.exitApp(); }
           },
           {
             text: 'Cancel',
-            handler: () => {
-              
-            }
+            handler: () => {}
           }
         ]
       });
       confirm.present();
     });
-
   }
 }
 

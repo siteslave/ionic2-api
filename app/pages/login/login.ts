@@ -15,16 +15,14 @@ interface HTTPResult {
   templateUrl: 'build/pages/login/login.html',
   providers: [Login]
 })
+  
 export class LoginPage {
   username: string
   password: string
 
-  constructor(private navCtrl: NavController, private loginProvider: Login) {
-
-  }
+  constructor(private navCtrl: NavController, private loginProvider: Login) {}
 
   login() {
-
     this.loginProvider.doLogin(this.username, this.password)
       .then(res => {
         let result: HTTPResult;
@@ -38,7 +36,6 @@ export class LoginPage {
       }, err => {
         alert(JSON.stringify(err));
       });
-
   }
-
 }
+
